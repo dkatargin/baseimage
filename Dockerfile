@@ -1,11 +1,8 @@
 FROM ubuntu:bionic
 
-ENV DEBIAN_FRONTEND="teletype" \
-    LANG="en_US.UTF-8" \
-    LANGUAGE="en_US:en" \
-    LC_ALL="en_US.UTF-8"
+ENV DEBIAN_FRONTEND="teletype"
 
-RUN apt update && apt install syslog-ng cron dumb-init runit -y
+RUN apt update && apt install less vim-tiny gpg-agent dirmngr syslog-ng cron dumb-init runit -y
 
 COPY ./scripts /scripts
 COPY ./services/ /services/
